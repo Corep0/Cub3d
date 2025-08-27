@@ -6,7 +6,7 @@
 /*   By: seruff <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 10:57:57 by seruff            #+#    #+#             */
-/*   Updated: 2025/08/01 15:29:21 by seruff           ###   ########.fr       */
+/*   Updated: 2025/08/27 15:36:09 by seruff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 typedef struct s_data		t_data;
 typedef struct s_content	t_content;
 typedef struct s_file		t_file;
-typedef struct s_ray		t_ray;
 typedef struct s_img		t_img;
 typedef struct s_player		t_player;
 typedef struct s_texture	t_texture;
@@ -87,19 +86,19 @@ typedef struct s_content
 	double		x_player;
 	double		y_player;
 	char		dir_player;
+	char		**map;
 }			t_content;
 
 // Player information(position/view)
 typedef struct s_player
 {
-	double	x_view;
-	double	y_view;
+	double	x_dir;
+	double	y_dir;
 	double	x_player;
 	double	y_player;
 	double	x_plane;
 	double	y_plane;
 }		t_player;
-
 
 // UTILS
 int		max_width_map(char *file); // Largeur de la ligne la plus grande de la char **map

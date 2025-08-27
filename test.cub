@@ -1,8 +1,8 @@
-NO	./texture/path.xpm
+NO	./texture/north.xpm
 
-SO	./texture/path_south.xpm
-WE	./texture/Nothing_path.xpm
-EA	./texture/east_path.xpm
+SO	./texture/south.xpm
+WE	./texture/west.xpm
+EA	./texture/east.xpm
 
 F	0,254,126
 C	123,0,91

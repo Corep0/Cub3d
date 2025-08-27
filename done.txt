@@ -13,6 +13,7 @@ ___________________________________________________________________________
  2. Initialisation du jeu
     Préparer les structures avant d’entrer dans la boucle de rendu.  V
      Convertir la direction (N, S, E, W) en vecteur direction + caméra plane. V
+		* Function to re-scale every image.xpm
      Stocker les dimensions de la map. V
      Charger les textures .xpm avec la mlx.
      Créer la fenêtre (mlx_new_window) et l’image (mlx_new_image).
@@ -42,3 +43,7 @@ ____________________________________________________________________________
 ____________________________________________________________________________
 
  6. Améliorations possibles (bonus)
+
+
+* Verifier l'ordre de fermetures du programme (leaks possibles)
+* Banque d'image des images deja generes. Conserver un stock des images generes (composing) 

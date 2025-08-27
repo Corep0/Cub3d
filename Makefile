@@ -6,7 +6,7 @@
 #    By: seruff <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 08:40:24 by seruff            #+#    #+#              #
-#    Updated: 2025/08/01 11:19:15 by seruff           ###   ########.fr        #
+#    Updated: 2025/08/27 15:48:20 by seruff           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC_DIR = src
 UTIL_DIR = $(SRC_DIR)/utils
 PARSE_DIR = $(SRC_DIR)/parsing
 PICK_CHECK_DIR = $(SRC_DIR)/pick_check
-GAME_DIR = $(SRC_DIR)/init_game
+TEXT_DIR = $(SRC_DIR)/init_texture
 SRC =	$(SRC_DIR)/main.c			\
 	$(PARSE_DIR)/initialization.c		\
 	$(PARSE_DIR)/nature_of_file.c		\
@@ -36,9 +36,9 @@ SRC =	$(SRC_DIR)/main.c			\
 	$(PARSE_DIR)/content.c			\
 	$(PARSE_DIR)/content2.c			\
 	$(PICK_CHECK_DIR)/pick.c		\
-	$(GAME_DIR)/init_dir.c			\
-	$(GAME_DIR)/size_map.c			\
-	$(GAME_DIR)/texture.c			\
+	$(TEXT_DIR)/init_dir.c			\
+	$(TEXT_DIR)/size_map.c			\
+	$(TEXT_DIR)/texture.c			\
 	$(UTIL_DIR)/utils.c			\
 	$(UTIL_DIR)/exit.c			\
 	$(UTIL_DIR)/free.c			\
