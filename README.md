@@ -15,15 +15,15 @@ ___________________________________________________________________________
      Convertir la direction (N, S, E, W) en vecteur direction + caméra plane. V
 		* Function to re-scale every image.xpm
      Stocker les dimensions de la map. V
-     Charger les textures .xpm avec la mlx.
-     Créer la fenêtre (mlx_new_window) et l’image (mlx_new_image).
+     Charger les textures .xpm avec la mlx. V
+     Créer la fenêtre (mlx_new_window) et l’image (mlx_new_image). V
 ____________________________________________________________________________
 
 3. Boucle principale (event loop)
     Le cœur du jeu.
      Boucle mlx_loop() pour gérer :
-        Entrées clavier (mlx_hook ou mlx_key_hook).
-        Fermeture de la fenêtre.
+        Entrées clavier (mlx_hook ou mlx_key_hook). 
+        Fermeture de la fenêtre. V (cross & ESC)
         Rafraîchissement de l’écran (à chaque frame).
 ____________________________________________________________________________
 
