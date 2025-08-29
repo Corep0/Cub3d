@@ -63,7 +63,10 @@ void	init_game(t_data *data)
 	if (!data->player)
 		exit_win(data, "Calloc failed", 3);
 	fill_player_data(data->player, data->content);
+	pick(data, data->infile);
 	stock_map_size(data, data->infile);
 	init_window(data);
-	load_colors_images_in_windows(data, data->infile);
+	init_ray(data);
+	raycaster(data, data->visu, data->visu->cam);
+	load_colors_images_in_struct(data, data->infile);
 }

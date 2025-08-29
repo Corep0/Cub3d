@@ -6,13 +6,13 @@
 /*   By: seruff <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 11:04:15 by seruff            #+#    #+#             */
-/*   Updated: 2025/08/29 09:52:00 by seruff           ###   ########.fr       */
+/*   Updated: 2025/08/29 10:55:48 by seruff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	add_right_image(t_data *d, t_content *content, int y, int x)
+/*static void	add_right_image(t_data *d, t_content *content, int y, int x)
 {
 	content->dir_player = 'N';
 	if (content->map[y][x] == '1' && content->dir_player == 'N')
@@ -30,7 +30,11 @@ static void	add_right_image(t_data *d, t_content *content, int y, int x)
 	else if (content->map[y][x] == '0')
 		mlx_put_image_to_window(d->mlx, d->win, d->texture[4].img,
 			x * TILE_SIZE, y * TILE_SIZE);
-}
+	else if (content->map[y][x] == 'N')
+		mlx_put_image_to_window(d->mlx, d->win, d->texture[2].img,
+			x * TILE_SIZE, y * TILE_SIZE);
+
+}*/
 
 static void	fill_window(t_data *data, t_content *content)
 {
@@ -86,5 +90,5 @@ void	load_colors_images_in_windows(t_data *data, t_file *in)
 {
 	load_images(data, in);
 	load_colors(data, in);
-	fill_window(data, data->content);
+	//fill_window(data, data->content);
 }

@@ -6,7 +6,7 @@
 #    By: seruff <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 08:40:24 by seruff            #+#    #+#              #
-#    Updated: 2025/08/27 15:48:20 by seruff           ###   ########.fr        #
+#    Updated: 2025/08/29 15:47:26 by seruff           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ INC = 	-L$(LIBFT_DIR) -lft	\
 SRC_DIR = src
 UTIL_DIR = $(SRC_DIR)/utils
 PARSE_DIR = $(SRC_DIR)/parsing
-PICK_CHECK_DIR = $(SRC_DIR)/pick_check
-TEXT_DIR = $(SRC_DIR)/init_texture
+PLAYER_DIR = $(SRC_DIR)/player_check
+TEXTURE_DIR = $(SRC_DIR)/init_texture
+MOVEMENT_DIR = $(SRC_DIR)/movement
+RAYCASTER_DIR = $(SRC_DIR)/raycaster
 SRC =	$(SRC_DIR)/main.c			\
 	$(PARSE_DIR)/initialization.c		\
 	$(PARSE_DIR)/nature_of_file.c		\
@@ -35,14 +37,16 @@ SRC =	$(SRC_DIR)/main.c			\
 	$(PARSE_DIR)/split_element.c		\
 	$(PARSE_DIR)/content.c			\
 	$(PARSE_DIR)/content2.c			\
-	$(PICK_CHECK_DIR)/pick.c		\
-	$(TEXT_DIR)/init_dir.c			\
-	$(TEXT_DIR)/size_map.c			\
-	$(TEXT_DIR)/texture.c			\
+	$(PLAYER_DIR)/player.c			\
+	$(TEXTURE_DIR)/init_dir.c		\
+	$(TEXTURE_DIR)/size_map.c		\
+	$(TEXTURE_DIR)/texture.c		\
+	$(TEXTURE_DIR)/convert_rgb_image.c	\
+	$(MOVEMENT_DIR)/key.c			\
+	$(RAYCASTER_DIR)/raycaster.c		\
 	$(UTIL_DIR)/utils.c			\
 	$(UTIL_DIR)/exit.c			\
 	$(UTIL_DIR)/free.c			\
-	$(SRC_DIR)/key.c			\
 	$(SRC_DIR)/init_window.c		\
 
 # Minilibx
