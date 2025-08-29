@@ -6,7 +6,7 @@
 /*   By: seruff <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 12:04:41 by seruff            #+#    #+#             */
-/*   Updated: 2025/08/27 11:11:16 by seruff           ###   ########.fr       */
+/*   Updated: 2025/08/29 09:18:09 by seruff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	key_event(int key, t_data *data)
 	if (key == KEY_LEFT)
 		move(data, -1, 0);
 	if (key == KEY_ESC)
-		exit_win(data, 0);
+		exit_win(data, "Program closed", 0);
 	return (0);
 }

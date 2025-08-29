@@ -62,24 +62,24 @@ void	init_file(t_data *data)
 {
 	data->content = ft_calloc(1, sizeof(t_content));
 	if (!data->content)
-		exit_win(data, 1);
+		exit_win(data, "Calloc failed", 1);
 	data->infile = ft_calloc(1, sizeof(t_file));
 	if (!data->infile)
-		exit_win(data, 1);
+		exit_win(data, "Calloc failed", 1);
 	if (copy_file(data->infile, data->av_file) != 0)
-		exit_win(data, 1);
+		exit_win(data, "Copy file failed", 1);
 	printf("File copied\n");
 	if (split_element_map(data->infile) != 0)
-		exit_win(data, 1);
+		exit_win(data, "Split element and map failed", 1);
 	printf("Split element and map\n");
 	if (check_and_extract_map(data->infile) != 0)
-		exit_win(data, 1);
+		exit_win(data, "Check and extract map failed", 1);
 	printf("Extracted map \n");
 	if (check_element_value(data->infile, data->infile->elements) != 0)
-		exit_win(data, 1);
+		exit_win(data, "Element value check failed", 1);
 	printf("Element correct\n");
 	if (check_content_map(data->infile, data->infile->map_bloc) != 0)
-		exit_win(data, 1);
+		exit_win(data, "Map content check failed", 1);
 	printf("Map content is correct\n");
 	swap_space_one(data->content, data->infile->map_bloc);
 	initial_direction(data->content, data->infile->map_bloc);

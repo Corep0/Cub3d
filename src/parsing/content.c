@@ -6,7 +6,7 @@
 /*   By: seruff <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:13:00 by seruff            #+#    #+#             */
-/*   Updated: 2025/07/30 14:53:42 by seruff           ###   ########.fr       */
+/*   Updated: 2025/08/29 10:18:27 by seruff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,13 @@ int	check_element_value(t_file *in, char **element)
 	while (element && element[i] && ft_count_carac(element[i], ',') == 0)
 	{
 		if (check_element_xpm(element[i]) != 0)
-		{
-			print_error("File doesn't exist or end with .xpm");
-			return (-1);
-		}
+			return (exit_win(NULL, "File doesn't end with .xpm", -1), -1);
 		i++;
 	}
 	while (element[i])
 	{
 		if (check_rgb(in, element[i], i) != 0)
-			return (print_error("RGB color isn't valid"), -1);
+			return (exit_win(NULL, "RGB color isn't valid", -1), -1);
 		i++;
 	}
 	return (0);

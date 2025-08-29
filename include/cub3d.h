@@ -6,7 +6,7 @@
 /*   By: seruff <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 10:57:57 by seruff            #+#    #+#             */
-/*   Updated: 2025/08/27 15:36:09 by seruff           ###   ########.fr       */
+/*   Updated: 2025/08/29 09:52:17 by seruff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct s_data
 	t_file		*infile;
 	t_player	*player;
 	t_content	*content;
-	t_texture	texture[4];
+	t_texture	texture[6]; //N S E W F C 0 1 2 3 4 5
 	t_texture	img;
 }		t_data;
 
@@ -104,8 +104,7 @@ typedef struct s_player
 int		max_width_map(char *file); // Largeur de la ligne la plus grande de la char **map
 int		get_width_map(char *line); // Largeur de la ligne sans \n
 int		empty_string(char *line); // Verifie que la ligne est vide == 0 sinon == 1
-void	print_error(char *mess); // Affiche le mess d'erreur avec le "Error\n" demande
-void	exit_win(t_data *data, int code); // Exit le programme et free le programme
+void	exit_win(t_data *data, char *mess, int code); // Exit le programme et free le programme
 void	free_file(t_file *infile);
 
 //MOVE
@@ -127,8 +126,9 @@ int		copy_file(t_file *infile, char *av_file); // Copy le fichier (av[1]) dans l
 int		check_infile(t_file *infile); // Verifie l'ordre et la nature des elements de char **elements
 void		init_file(t_data *data); // Main de l'initialisation.
 
-//GAME
-int	load_images(t_data *data, t_file *in);
+//Texture
+void	convert_rgb_to_image(t_data *data, int *rgb, int i);
+void	load_colors_images_in_windows(t_data *data, t_file *in);
 void	stock_map_size(t_data *data, t_file *in);
 void	init_window(t_data *data);
 void	init_game(t_data *data);

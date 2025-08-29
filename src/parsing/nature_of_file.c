@@ -6,7 +6,7 @@
 /*   By: seruff <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:01:45 by seruff            #+#    #+#             */
-/*   Updated: 2025/07/30 13:24:23 by seruff           ###   ########.fr       */
+/*   Updated: 2025/08/29 10:18:00 by seruff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	check_extension(char *file)
 
 	i = ft_strlen(file);
 	if (i < 4 || ft_strcmp(file + i - 4, ".cub"))
-		return (print_error("The file need to be .cub at the end"), -1);
+		return (exit_win(NULL, "The file need to be .cub at the end", -1), -1);
 	return (0);
 }
 
@@ -70,18 +70,18 @@ int	copy_file(t_file *infile, char *av_file)
 
 	fd = open(av_file, O_RDONLY);
 	if (fd < 0)
-		return (print_error("File doesn't exist"), -1);
+		return (exit_win(NULL, "File doesn't exist", -1), -1);
 	if (!av_file || check_extension(av_file) != 0)
-		return (print_error("Need file.cub"), close(fd), -1);
+		return (exit_win(NULL, "Need file.cub", -1), close(fd), -1);
 	cap = size_file(av_file);
 	if (cap == -1)
-		return (close(fd), print_error("Malloc in size_file() failed"), -1);
+		return (close(fd), exit_win(NULL, "Malloc failed", -1), -1);
 	copy = malloc(sizeof(char *) * (cap + 1));
 	if (!copy)
-		return (close(fd), -1);
+		return (close(fd), exit_win(NULL, "Malloc failed", -1), -1);
 	copy = copy_file_to_array(copy, fd);
 	if (!copy)
-		return (close(fd), -1);
+		return (close(fd), exit_win(NULL, "Copy file to array failed", -1), -1);
 	copy[cap] = NULL;
 	infile->file = copy;
 	return (0);

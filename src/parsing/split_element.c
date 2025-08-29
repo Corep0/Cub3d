@@ -46,7 +46,7 @@ static int	copy_element(t_file *infile, char **ele, char *line, int *index)
 		ele[*index] = ft_strdup(tab[1]);
 		ft_free_array(tab);
 		if (!ele[*index])
-			return (print_error("Malloc"), -1);
+			return (exit_win(NULL, "Malloc failed", -1), -1);
 		(*index)++;
 		return (0);
 	}
@@ -63,7 +63,7 @@ static int	process_element_line(t_file *in, char **ele, int *index, int i)
 	if (empty_string(in->file[i]) == 0)
 		return (1);
 	if (copy_element(in, ele, in->file[i], index) != 0)
-		return (print_error("Wrong orders of elements"), -1);
+		return (exit_win(NULL, "Wrong orders of elements", -1), -1);
 	if (in->nb_element == 6)
 	{
 		ele[*index] = NULL;

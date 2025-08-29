@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac != 2)
-		return (print_error("Need one file\n"), 1);
+		exit_win(NULL, "Need one file\n", 1);
 	data.av_file = av[1];
 	init_file(&data);
 	init_game(&data);

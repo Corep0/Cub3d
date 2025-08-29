@@ -6,7 +6,7 @@
 /*   By: seruff <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 14:20:13 by seruff            #+#    #+#             */
-/*   Updated: 2025/08/27 15:40:53 by seruff           ###   ########.fr       */
+/*   Updated: 2025/08/29 09:41:12 by seruff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,9 @@ void	init_game(t_data *data)
 {
 	data->player = ft_calloc(1, sizeof(t_player));
 	if (!data->player)
-		exit_win(data, 3);
+		exit_win(data, "Calloc failed", 3);
 	fill_player_data(data->player, data->content);
 	stock_map_size(data, data->infile);
 	init_window(data);
-	if (load_images(data, data->infile) != 0)
-		exit_win(data, 3);
+	load_colors_images_in_windows(data, data->infile);
 }

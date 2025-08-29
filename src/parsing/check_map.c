@@ -48,11 +48,11 @@ static int	find_map(t_file *infile, int *start, int *end)
 			*end = i;
 		}
 		else if (*start != -1 && empty_string(line) == 0)
-			return (print_error("Map contains invalid the map"), -1);
+			exit_win(NULL, "Map contains invalid the map", -1);
 		i++;
 	}
 	if (*start == -1 || *end == -1)
-		return (print_error("No map found in file"), -1);
+		exit_win(NULL, "No map found in file", -1);
 	return (0);
 }
 
@@ -67,17 +67,17 @@ static int	valid_map(t_file *infile, int start, int end)
 			|| infile->file[start][j] == '\t'))
 		j++;
 	if (infile->file[start][j] != '1')
-		return (print_error("Map corner doesn't start with a 1"), -1);
+		exit_win(NULL, "Map corner doesn't start with a 1", -1);
 	len = ft_array_len(infile->file);
 	i = end + 1;
 	while (i < len)
 	{
 		if (empty_string(infile->file[i]) == 0)
-			return (print_error("There is empty line inside the map"), -1);
+			exit_win(NULL, "There is empty line inside the map", -1);
 		i++;
 	}
 	if (i <= len && (infile->file[i] && !is_map_content(infile->file[i])))
-		return (print_error("The map isn't the last element of the file"), -1);
+		exit_win(NULL, "The map isn't the last element of the file", -1);
 	return (0);
 }
 
@@ -90,14 +90,14 @@ static int	extract_map(t_file *infile, int start, int end)
 	map_len = end - start + 1;
 	infile->map_bloc = malloc(sizeof(char *) * (map_len + 1));
 	if (!infile->map_bloc)
-		return (print_error("Malloc failed in extract_map"), -1);
+		exit_win(NULL, "Malloc failed in extract_map", -1);
 	while (i < map_len)
 	{
 		infile->map_bloc[i] = ft_strdup(infile->file[start + i]);
 		if (!infile->map_bloc[i++])
 		{
 			ft_free_array(infile->map_bloc);
-			return (print_error("Malloc failed"), -1);
+			exit_win(NULL, "Malloc failed", -1);
 		}
 	}
 	infile->map_bloc[map_len] = NULL;

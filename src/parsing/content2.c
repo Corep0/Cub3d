@@ -46,7 +46,7 @@ static int	flood_case(char **map, char c, int y, int x)
 				|| !map[y - 1] || !map[y + 1]
 				|| x >= (int)ft_strlen(map[y - 1])
 				|| x >= (int)ft_strlen(map[y + 1]))
-			return (print_error("Map isn't closed"), -1);
+			return (exit_win(NULL, "Map isn't closed", -1), 1);
 	}
 	return (0);
 }
@@ -63,7 +63,7 @@ static int	wrong_content_in_map(char **map)
 		while (map[y][x])
 		{
 			if (flood_case(map, map[y][x], y, x) != 0)
-				return (-1);
+				return (exit_win(NULL, "Map isn't closed", -1), 1);
 			x++;
 		}
 		y++;
@@ -74,13 +74,13 @@ static int	wrong_content_in_map(char **map)
 int	check_content_map(t_file *in, char **map)
 {
 	if (!map)
-		return (print_error("Map doesn't exist"), -1);
+		exit_win(NULL, "Map doesn't exist", -1);
 	in->nb_player = 0;
 	if (right_element(in, map) != 0)
-		return (print_error("Map got other content than 01NESW' '"), -1);
+		exit_win(NULL, "Map got other content than 01NESW' '", -1);
 	if (in->nb_player > 1)
-		return (print_error("Too many player in the map"), -1);
+		exit_win(NULL, "Too many player in the map", -1);
 	if (wrong_content_in_map(map) != 0)
-		return (print_error("Wrong carac inside the map"), -1);
+		exit_win(NULL, "Wrong carac inside the map", -1);
 	return (0);
 }
